@@ -1,0 +1,76 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class N1978 {
+
+	public static void main(String[] args) {
+		
+		InputStreamReader isr = null;
+		BufferedReader br = null;
+		/**
+		 * 소수는 1과 자신외에는 어떤수로도 나누어떨어지지 않는 자연수
+		 */
+		try {
+			isr = new InputStreamReader(System.in);
+			br = new BufferedReader(isr);
+			
+			int cnt = Integer.parseInt( br.readLine() ); 
+			String row = br.readLine();
+			int now = 0;
+			boolean flag;
+			int showCnt = 0;
+//			System.out.println("==================");
+			for (int i = 0; i < cnt; i++) {
+				flag = false;
+				now = Integer.parseInt( row.split(" ")[i] );				
+//				System.out.println(now);
+				flag = isPrime(now);
+				if (flag) {
+					showCnt++;
+				}
+			}
+			System.out.println(showCnt);
+		} catch (IOException e) {
+			System.out.println(e);
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			if ( br != null ) {
+				try { br.close(); } catch (IOException e) { System.out.println(e); } 
+			}
+			if ( isr != null ) {
+				try { isr.close(); } catch (IOException e) { System.out.println(e); } 
+			}
+		}
+		
+		
+		
+		
+		
+	}
+	
+	// 소수판별 함수
+	private static boolean isPrime(int now) {
+		// 1은 소수가 아니니 패스
+		if (now == 1) {
+			return false;
+		}
+		
+//		System.out.println( (int)Math.sqrt(now) );
+		int sqrt = (int)Math.sqrt(now); // 제곱근 구하기
+		boolean flag = true;
+		for (int i = 2; i <= sqrt; i++) {
+			if (now % i == 0) {
+				flag = false;
+				break;
+			}
+		}
+		
+		return flag;
+	}
+	
+	
+}
