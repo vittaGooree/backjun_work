@@ -18,11 +18,11 @@ public class N1978 {
       int row = Integer.parseInt( br.readLine() );
 
       int cnt = 0;
-      int now = 0;
+      int now = 0;;;
 
 
       for (int i = 0; i < row; i++) {
-
+ 
         now = Integer.parseInt( br.readLine().split(" ")[i] );
 
         System.out.println(now);
